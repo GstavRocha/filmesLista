@@ -1,0 +1,7 @@
+{
+  "name": "ListaFilmeApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
