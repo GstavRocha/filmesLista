@@ -6,7 +6,7 @@ import {Filme} from "./filme";
   providedIn: 'root'
 })
 export class FilmesService {
-  private APIKEY:string = '69a954bd'
+
   private APITAUTH:string = `https://www.omdbapi.com/?i=tt3896198&apikey=${this.APIKEY}`;
   private teste: string = 'MIB';
   Filme:Filme[] = []
