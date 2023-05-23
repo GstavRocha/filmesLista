@@ -13,7 +13,13 @@
     </ion-toolbar>
   </ion-header>
   <ion-content>
-<ion-label>treta</ion-label>
+    <ion-list>
+      <ion-item *ngFor="let filme of filmes">
+        <ion-label>
+          <ion-title>{{filme.Title}}</ion-title>
+        </ion-label>
+      </ion-item>
+    </ion-list>
   </ion-content>
   <app-explore-container name="Tab 1 page"></app-explore-container>
 </ion-content>
