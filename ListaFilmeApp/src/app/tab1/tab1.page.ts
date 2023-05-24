@@ -10,17 +10,14 @@ import {FilmesService} from "../filmes.service";
 export class Tab1Page implements OnInit{
   filmes: Filme[];
   teste: any;
+
   constructor(private fs: FilmesService) {
     this.filmes = [];
     this.teste = '';
+
   }
   ngOnInit() {
-    this.obterFilmes();
-  }
+    this.fs.getFilmes()
 
-  obterFilmes(){
-    this.fs.obterFilmeTitulo().subscribe((data:any)=>{
-      this.filmes.push(data)
-    })
   }
 }
