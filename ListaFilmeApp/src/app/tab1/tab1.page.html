@@ -1,24 +1,24 @@
 <ion-header [translucent]="true">
-  <ion-toolbar class="primary">
+  <ion-toolbar color="primary">
     <ion-title>
       APP lista Filmes
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="false">
-  <ion-header collapse="condense">
-    <ion-toolbar  class="primary">
-      <ion-title size="large">APP lista Filmes</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true">
   <ion-content>
     <ion-list>
-      <ion-item *ngFor="let fl of filmes">
-      <ion-label>
-        <ion-title>{{fl.Title }}</ion-title>
-      </ion-label>
+      <ion-item>
+        <ion-label position="floating" class="ion-text-xl ion-margin"> Busca geral por título</ion-label>
+        <ion-input type="text" placeholder="escolha o filme" #filme (change)="getAllFilmes(filme)"></ion-input>
       </ion-item>
+    </ion-list>
+    <ion-list *ngFor="let fl of filmes">
+      <ion-card>
+        <ion-card-header>{{fl.Title}}</ion-card-header>
+      </ion-card>
+
     </ion-list>
   </ion-content>
   <app-explore-container name="Tab 1 page"></app-explore-container>
