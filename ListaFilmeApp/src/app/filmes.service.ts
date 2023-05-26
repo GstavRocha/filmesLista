@@ -1,18 +1,19 @@
 import {HttpClient} from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import {Filme} from "./filme";
-import {Observable} from "rxjs";
+import { Observable, throwError } from 'rxjs';
 import {Title} from "@angular/platform-browser";
 
 @Injectable({
   providedIn: 'root'
 })
 export class FilmesService {
-  private APIKEY:string = '69a954bd'
-  private APITAUTH:string = `https://www.omdbapi.com/?apikey=${this.APIKEY}`;
+  private APIKEY:string;
+  private APITAUTH:string;
   private teste: string = 'MIB';
-  Filme:Filme[] = []
   constructor(private http: HttpClient) {
+    this.APIKEY ='69a954bd';
+   this.APITAUTH = `https://www.omdbapi.com/?apikey=${this.APIKEY}`;
   }
   getTitulo(){
     console.log(`${this.APITAUTH}&t=${this.teste}`)
@@ -21,5 +22,8 @@ export class FilmesService {
   getFilmes(text: string):Observable<Filme>{
     console.log(this.http.get<Filme>(this.APITAUTH));
     return this.http.get<Filme>(`${this.APITAUTH}&=${text}`);
+  }
+  getTesteFilme():Observable<Filme>{
+    return this.http.get<Filme>(`${this.APITAUTH}&t=a&plot=full`);
   }
 }

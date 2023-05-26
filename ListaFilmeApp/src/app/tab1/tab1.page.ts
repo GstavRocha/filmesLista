@@ -8,18 +8,25 @@ import {IonInput} from "@ionic/angular";
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page{
+export class Tab1Page implements OnInit{
   filmes: Filme[];
-  teste: any;
+  teste: string;
 
   constructor(private fs: FilmesService) {
     this.filmes = [];
+    this.teste = 'MIB';
 
   }
-  getAllFilmes(text: IonInput){
-    let titulo: string = '';
-    this.fs.getFilmes(titulo).subscribe((res)=>{
-     return  this.filmes = Object.values(res)[0];
+  getAllFilmes(text: IonInput) {
+    let texto = JSON.stringify(text.value);
+    this.fs.getFilmes(texto).subscribe((res) => {
+      this.filmes = Object.values(res)[0]
     })
-  }
+  };
+  ngOnInit(){
+    this.fs.getTesteFilme().subscribe((res: Filme)=>{
+      this.filmes = Object.values(res)[0];
+      console.log( this.filmes);
+    })
+  };
 }
