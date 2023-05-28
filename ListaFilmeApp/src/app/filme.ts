@@ -8,6 +8,7 @@ export class Filme{
   public Language: string;
   public Country: string;
   public Poster: string;
+  public Type: string;
 
   constructor() {
     this.Title = '';
@@ -19,5 +20,6 @@ export class Filme{
     this.Language = '';
     this.Country = '';
     this.Poster = '';
+    this.Type = '';
   }
 }

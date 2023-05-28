@@ -5,20 +5,23 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-content>
-    <ion-list>
-      <ion-item>
-        <ion-label position="floating" class="ion-text-xl ion-margin"> Busca geral por título</ion-label>
-        <ion-input type="text" placeholder="escolha o filme" #filme (change)="getAllFilmes(filme)"></ion-input>
-      </ion-item>
-    </ion-list>
-    <ion-list *ngFor="let fl of filmes">
+  <ion-item>
+    <ion-label position="floating">Busca Geral por título</ion-label>
+    <ion-input #fil (change)="getFilme(fil)" type="text" placeholder="nome do filme"></ion-input>
+  </ion-item>
+    <ion-list *ngFor="let filme of filmes">
       <ion-card>
-      </ion-card>
+        <img src="{{filme.Poster}}" alt="{{filme.Title}}" width="250" height="250"/>
+        <ion-header>
+          <ion-card-title>{{filme.Title}}</ion-card-title>
+          <ion-card-subtitle>{{filme.Year}} - {{filme.Type}}</ion-card-subtitle>
+        </ion-header>
+        <ion-card-content>
 
+        </ion-card-content>
+
+      </ion-card>
     </ion-list>
-  </ion-content>
   <app-explore-container name="Tab 1 page"></app-explore-container>
 </ion-content>
