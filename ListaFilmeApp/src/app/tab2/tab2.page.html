@@ -1,14 +1,28 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
     <ion-title>
-      Tab 2
+      App Filmes Lista
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
     <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+      <ion-item>
+        <ion-label position="floating">Busca por titulo</ion-label>
+        <ion-input #fil (change)="getPorTitulo(fil)" type="text" ></ion-input>
+      </ion-item>
+        <ion-card [hidden]="filme.Title == undefined">
+          <img src="{{filme.Poster}}" alt="{{filme.Title}}" width="300" height="169"/>
+          <ion-header>
+            <ion-card-title>{{filme.Title}}</ion-card-title>
+            <ion-card-subtitle>{{filme.Year}} - {{filme.Type}}</ion-card-subtitle>
+          </ion-header>
+          <ion-item>
+            <ion-button (click)="setFavoritosFilme(filme)">+ Favoritos</ion-button>
+          </ion-item>
+        </ion-card>
+
     </ion-toolbar>
   <app-explore-container name="Tab 2 page"></app-explore-container>
 </ion-content>

@@ -9,6 +9,7 @@ export class Filme{
   public Country: string;
   public Poster: string;
   public Type: string;
+  public Favoritos: boolean;
 
   constructor() {
     this.Title = '';
@@ -21,5 +22,6 @@ export class Filme{
     this.Country = '';
     this.Poster = '';
     this.Type = '';
+    this.Favoritos = false;
   }
 }

@@ -16,9 +16,18 @@ export class Tab1Page{
     this.filmes = [];
   }
   getFilme(text: IonInput){
-    this.fs.getFilmes(text).subscribe((res:Filme)=>{
+    let tratamento = JSON.stringify(text.value)
+    this.fs.getFilmes(tratamento).subscribe((res:Filme)=>{
       this.filmes = Object.values(res)[0];
-      console.log(this.filmes);
-  });
+      this.fs.filmeFavoritos(this.filmes)});
+  }
+  favoritos(titulo: any){
+    for(let index = 0; index < this.filmes.length; index++){
+      titulo[index].Favoritos = false;
+    }
+  }
+  setFavoritosFilme(titulo: any){
+    titulo.Favoritos = true;
+    this.fs.filmeFavoritos(titulo);
   }
 }
